@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="preload" as="image" href="animation.gif" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@picocss/pico@1.*/css/pico.min.css"
+    />
+    <link rel="stylesheet" href="./style.css" />
+
+    <title>Lemonade!</title>
+  </head>
+  <body>
+    <main id="intro">
+      <img src="./animation.gif" />
+    </main>
+    <main id="app" class="container">
+      <article>
+
+        <img
+          id="logo"
+          src="https://cdn.pixabay.com/photo/2012/04/15/20/36/juice-35236_960_720.png"
+        />
+        <h2 id="title">Lemonade!</h2>
+        <h1 class="box" id="balance__asset">
+          <span aria-busy="true"></span>
+        </h1>
+        <div style="font-size: 60%">RVN <span id="balance__rvn">0</span></div>
+      </article>
+
+      <wallet-transaction-ongoing-indicator tabindex="0"></wallet-transaction-ongoing-indicator>
+
+      <article>
+        <h4>Receive</h4>
+
+        <img id="receive__qr" />
+
+        <div id="receive__address"></div>
+      </article>
+
+      <article>
+        <h4>Pay / Send</h4>
+        <form>
+          <input type="text" id="send__input" />
+          <button id="sendButton">Send one LEMONADE</button>
+        </form>
+      </article>
+    </main> 
+
+    <dialog close>
+      <article>
+        <header>
+          <a href="#close" aria-label="Close" class="close"></a>
+          <div class="dialog__header"></div>
+        </header>
+        <p>
+        <div class="dialog__body"></div>
+        </p>
+      </article>
+    </dialog>
+
+
+
+    <script src="./index.js" type="module"></script>
+  </body>
+</html>
