@@ -1,9 +1,10 @@
 import RavencoinWallet from "@ravenrebels/ravencoin-jswallet";
+import { getMnemonic } from "./mnemonicHandler";
 
+const mnemonic = getMnemonic();
 //Singleton every, always returns the same
 const promise = RavencoinWallet.createInstance({
-  mnemonic:
-    "fish divorce have gadget trip token furnace marine little learn sheriff insect",
+  mnemonic,
   network: "rvn-test",
 });
 

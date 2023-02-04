@@ -13,10 +13,8 @@
   border-radius: 10px;
 }
 
-#app {
-  display: none;
-}
-h2, h3 {
+h2,
+h3 {
   margin-bottom: 10px;
 }
 h1 {
@@ -33,4 +31,10 @@ wallet-transaction-ongoing-indicator {
 
 #intro {
   text-align: center;
+}
+
+.intro__image {
+  padding: 50px;
+  background: white;
+  border-radius: 20px;
 }

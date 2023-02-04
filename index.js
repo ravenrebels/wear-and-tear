@@ -1,4 +1,5 @@
 import { updateIndicator } from "./updateIndicator";
+import { updateReceive } from "./updateReceive";
 import { getWallet } from "./getWallet";
 import { getTokenName } from "./getTokenName";
 import { updateBalance } from "./updateBalance";
@@ -7,32 +8,26 @@ import { getty, updateDOM } from "./utils";
 async function work() {
   const wallet = await getWallet();
   updateGUIWithCorrectAssetName();
-
-  setInterval(updateBalance, 10 * 1000);
-  setInterval(updateReceive, 5 * 60 * 1000);
-  updateIndicator();
-  //Check for mempool transactions
+  setLogo();
 
   setInterval(updateIndicator, 5 * 1000);
-
-  //Wait for udpateBalacne and updateReceive to get ready
-  await Promise.all([updateBalance(), updateReceive()]);
-
-  activateApp();
+  setInterval(updateBalance, 10 * 1000);
+  setInterval(updateReceive, 5 * 60 * 1000);
+  updateReceive();
+  updateBalance();
+  updateIndicator();
 
   document
     .querySelector("form")
     .addEventListener("submit", createSubmitListener());
 
-  async function updateReceive() {
-    const addy = await wallet.getReceiveAddress();
-    updateDOM("receive__address", addy);
+  //In case of transaction, update balance
+  document.body.addEventListener("transaction-cleared", updateBalance);
 
-    const imageURL =
-      "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + addy;
-    getty("receive__qr").setAttribute("src", imageURL);
-    return addy;
-  }
+  //Handle save mnemonic button
+  getty("saveMnemonicButton").addEventListener("click", function (event) {
+    alert("Should save");
+  });
 
   function createSubmitListener() {
     const listener = (event) => {
@@ -41,7 +36,7 @@ async function work() {
       const toAddress = getty("send__input").value;
       const sendRequest = {
         toAddress,
-        assetName: "LEMONADE",
+        assetName: getTokenName(),
         amount: 1,
       };
       const promise = wallet.send(sendRequest);
@@ -66,11 +61,6 @@ function updateGUIWithCorrectAssetName() {
   getty("sendButton").innerText = "Send one " + getTokenName();
 }
 
-function activateApp() {
-  getty("intro").style.display = "none";
-  getty("app").style.display = "block";
-}
-
 function openDialog(title, body) {
   const dialog = document.querySelector("dialog");
   dialog.removeAttribute("close");
@@ -93,4 +83,13 @@ function scrollToTop() {
   try {
     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
   } catch (e) {}
+}
+
+function setLogo() {
+  const logo = getty("logo");
+  const baseURL = "https://testnet.ting.finance/thumbnail";
+  const searchParams = new URLSearchParams("?");
+  searchParams.set("assetName", getTokenName());
+  const URL = baseURL + "?" + searchParams.toString();
+  logo.setAttribute("src", URL);
 }

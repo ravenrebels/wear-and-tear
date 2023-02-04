@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "start": "parcel index.html --no-cache",
-    "build": "parcel build index.html --public-url .  --no-content-hash"
+    "build": "parcel build index.html --public-url . "
   },
   "keywords": [],
   "author": "",
@@ -13,7 +13,8 @@
     "@ravenrebels/ravencoin-history-list": "^1.2.1",
     "@ravenrebels/ravencoin-jswallet": "^0.1.6",
     "@ravenrebels/ravencoin-key": "^2.1.5",
-    "parcel": "^2.8.3"
+    "parcel": "^2.8.3",
+    "undefined": "^0.1.0"
   },
   "devDependencies": {
     "assert": "^2.0.0",
