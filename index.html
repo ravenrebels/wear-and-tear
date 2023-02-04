@@ -18,38 +18,14 @@
   </head>
   <body>
     <main id="app" class="container">
-      <article>
-        <img alt="" id="logo" />
-        <h2 id="title">Loading...</h2>
-        <h1 class="box" id="balance__asset">
-          <span aria-busy="true"></span>
-        </h1>
-        <div style="font-size: 60%">RVN <span id="balance__rvn">0</span></div>
-      </article>
-
+      <lemonade-balance></lemonade-balance>
       <wallet-transaction-ongoing-indicator
         tabindex="0"
       ></wallet-transaction-ongoing-indicator>
-
-      <article>
-        <h4>Receive</h4>
-
-        <img id="receive__qr" alt="Receive address" />
-
-        <div id="receive__address"></div>
-      </article>
-
-      <article>
-        <h4>Pay / Send</h4>
-        <form>
-          <input type="text" id="send__input" />
-          <button id="sendButton">Send one LEMONADE</button>
-        </form>
-      </article>
-
+      <lemonade-receive></lemonade-receive>
+      <lemonade-send></lemonade-send>
       <article>
         <h3>Advanced</h3>
-
         <input type="text" name="mnemonic" id="mnemonic" />
         <button id="saveMnemonicButton">Save words</button>
       </article>
