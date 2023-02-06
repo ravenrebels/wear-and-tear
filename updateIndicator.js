@@ -19,11 +19,15 @@ export async function updateIndicator() {
     "wallet-transaction-ongoing-indicator"
   );
 
+  if (!indicator) {
+    console.log("no indicator element");
+    return;
+  }
+  console.log("indicator", indicator);
   const history = History.getHistory(mempool);
   indicator.innerHTML = "";
 
   function isValid(asset) {
-    console.log("Checking", asset);
     if (!asset) {
       return false;
     }

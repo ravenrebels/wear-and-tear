@@ -69,4 +69,4 @@ function scrollToTop() {
   } catch (e) {}
 }
 
-customElements.define("lemonade-send", Send);
+customElements.define("rr-send", Send);

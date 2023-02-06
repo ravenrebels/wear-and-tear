@@ -18,17 +18,14 @@
   </head>
   <body>
     <main id="app" class="container">
-      <lemonade-balance></lemonade-balance>
+      <rr-balance></rr-balance>
       <wallet-transaction-ongoing-indicator
         tabindex="0"
       ></wallet-transaction-ongoing-indicator>
-      <lemonade-receive></lemonade-receive>
-      <lemonade-send></lemonade-send>
-      <article>
-        <h3>Advanced</h3>
-        <input type="text" name="mnemonic" id="mnemonic" />
-        <button id="saveMnemonicButton">Save words</button>
-      </article>
+      <rr-receive></rr-receive>
+      <rr-send></rr-send>
+
+      <rr-words></rr-words>
     </main>
 
     <dialog close="true">

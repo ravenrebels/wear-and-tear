@@ -1,4 +1,3 @@
-import { timeStamp } from "console";
 import { getWallet } from "./getWallet";
 
 class Receive extends HTMLElement {
@@ -7,7 +6,7 @@ class Receive extends HTMLElement {
       "<article><h4 aria-busy='true'>Creating QR code...</h4></article>";
     this.update();
     //Get new receive address eatch time the wallet is opened
-    //setInterval(this.update, 5 * 60 * 1000);
+    setInterval(this.update, 60 * 1000);
   }
   async update() {
     this.wallet = await getWallet();
@@ -19,8 +18,7 @@ class Receive extends HTMLElement {
 function getHTML(addy) {
   return `
 <article>
-    <h4>Receive</h4>
-
+    <h4>Receive</h4> 
     <img 
         src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${addy}"
         alt="Receive address" /> 
@@ -28,4 +26,4 @@ function getHTML(addy) {
 </article>
   `;
 }
-customElements.define("lemonade-receive", Receive);
+customElements.define("rr-receive", Receive);

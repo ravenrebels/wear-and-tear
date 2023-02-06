@@ -11,7 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "@ravenrebels/ravencoin-history-list": "^1.2.1",
-    "@ravenrebels/ravencoin-jswallet": "^0.1.6",
+    "@ravenrebels/ravencoin-jswallet": "file:../ravencoin-jswallet",
     "@ravenrebels/ravencoin-key": "^2.1.5",
     "parcel": "^2.8.3",
     "undefined": "^0.1.0"

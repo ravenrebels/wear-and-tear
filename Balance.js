@@ -7,15 +7,16 @@ class Balance extends HTMLElement {
     <h2 id="title" aria-busy="true">Loading...</h2>
     </article>`;
 
-    this.wallet = await getWallet();
-
     //In case of transaction, update balance
-    document.body.addEventListener("transaction-cleared", this.update);
 
+    const up = () => {
+      this.update();
+    };
+    document.body.addEventListener("transaction-cleared", up);
     this.update();
   }
   async update() {
-    const wallet = this.wallet;
+    const wallet = await getWallet();
     const rvnBalance = await wallet.getBalance();
     const assets = await wallet.getAssets();
 
@@ -27,6 +28,7 @@ class Balance extends HTMLElement {
                     <img 
                         alt="" 
                         id="logo" 
+                        loading="lazy"
                         src="${getImageURL()}"/> 
                      <h2 id="title">${getTokenName()}</h2>
                     <h1 class="box" id="balance__asset">
@@ -39,7 +41,7 @@ class Balance extends HTMLElement {
                     </div>
                 </article>
   `;
-
+    console.log("Balance update and this is", this);
     this.innerHTML = template;
   }
 }
@@ -52,4 +54,4 @@ function getImageURL() {
   return baseURL + params.toString();
 }
 
-customElements.define("lemonade-balance", Balance);
+customElements.define("rr-balance", Balance);
