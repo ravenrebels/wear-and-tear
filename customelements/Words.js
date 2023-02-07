@@ -1,4 +1,4 @@
-import { getMnemonic, setMnemonic } from "./mnemonicHandler";
+import { getMnemonic, setMnemonic } from "../mnemonicHandler";
 class Words extends HTMLElement {
   connectedCallback() {
     const mnemonic = getMnemonic();
@@ -14,7 +14,7 @@ class Words extends HTMLElement {
         Show my secret password
       </label>
         <form style="display:none">
-        <p>Write down or copy these words to be able to restore your tokens later</p>
+        <p><i>Write down or copy these words to be able to restore your tokens later</i></p>
             <textarea name="words">${mnemonic}</textarea>
             <button type="submit">Save</button>
            

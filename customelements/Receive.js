@@ -1,4 +1,4 @@
-import { getWallet } from "./getWallet";
+import { getWallet } from "../getWallet";
 
 class Receive extends HTMLElement {
   async connectedCallback() {

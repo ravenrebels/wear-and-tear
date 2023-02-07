@@ -1,6 +1,6 @@
-import { getTokenName } from "./getTokenName";
-import { getWallet } from "./getWallet";
-import { getty } from "./utils";
+import { getTokenName } from "../getTokenName";
+import { getWallet } from "../getWallet";
+import { getty } from "../utils";
 const asset = getTokenName();
 
 class Send extends HTMLElement {
@@ -32,6 +32,10 @@ function createSubmitListener(wallet) {
     const promise = wallet.send(sendRequest);
     promise.then((a) => {
       openDialog("Token sent", "One " + getTokenName() + " is on its way");
+      console.log("Send result", a);
+
+      const json = JSON.stringify(a, null, 4);
+      document.body.innerHTML ="<pre>" + json + "</pre>";
       getty("send__input").value = "";
       scrollToTop();
     });

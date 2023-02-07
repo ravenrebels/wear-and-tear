@@ -1,5 +1,5 @@
-import { getTokenName } from "./getTokenName";
-import { getWallet } from "./getWallet";
+import { getTokenName } from "../getTokenName";
+import { getWallet } from "../getWallet";
 
 class Balance extends HTMLElement {
   async connectedCallback() {
