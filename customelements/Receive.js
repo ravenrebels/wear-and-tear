@@ -12,7 +12,8 @@ class Receive extends HTMLElement {
     this.wallet = await getWallet();
     const addy = await this.wallet.getReceiveAddress();
     this.innerHTML = getHTML(addy);
-    const copy = () => {
+    const copy = (event) => {
+      event.preventDefault();
       navigator.clipboard.writeText(addy);
 
       copyButton.innerHTML = `<i style="font-size: 150%" class="fas fa-smile"></i>`;
