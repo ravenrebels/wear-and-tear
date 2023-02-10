@@ -1,5 +1,6 @@
 import { getTokenName } from "../getTokenName";
 import { getWallet } from "../getWallet";
+import RavencoinReader from "@ravenrebels/ravencoin-reader";
 
 class Balance extends HTMLElement {
   async connectedCallback() {
@@ -44,6 +45,16 @@ class Balance extends HTMLElement {
   `;
     console.log("Balance update and this is", this);
     this.innerHTML = template;
+
+    //Add click listener to image
+    this.querySelector("img").addEventListener("click", async () => {
+      const data = await RavencoinReader.getAsset(getTokenName());
+      if (data.ipfs_hash) {
+        window.open(
+          "https://cloudflare-ipfs.com/ipfs/" + data.ipfs_hash
+        );
+      }
+    });
   }
 }
 

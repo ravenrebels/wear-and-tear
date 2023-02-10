@@ -13,6 +13,7 @@
     "@ravenrebels/ravencoin-history-list": "^1.2.1",
     "@ravenrebels/ravencoin-jswallet": "^0.3.0",
     "@ravenrebels/ravencoin-key": "^2.1.5",
+    "@ravenrebels/ravencoin-reader": "^0.0.4",
     "parcel": "^2.8.3",
     "undefined": "^0.1.0"
   },
