@@ -12,6 +12,16 @@ class Receive extends HTMLElement {
     this.wallet = await getWallet();
     const addy = await this.wallet.getReceiveAddress();
     this.innerHTML = getHTML(addy);
+    const copy = () => {
+      navigator.clipboard.writeText(addy);
+
+      copyButton.innerHTML = `<i style="font-size: 150%" class="fas fa-smile"></i>`;
+      setTimeout(() => {
+        copyButton.innerHTML = "Copy";
+      }, 2000);
+    };
+    const copyButton = document.getElementById("receive__copy");
+    copyButton.addEventListener("click", copy);
   }
 }
 
@@ -23,6 +33,7 @@ function getHTML(addy) {
         src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${addy}"
         alt="Receive address" /> 
     <div id="receive__address">${addy}</div>
+    <a href="#" role="button" id="receive__copy">Copy</a>
 </article>
   `;
 }

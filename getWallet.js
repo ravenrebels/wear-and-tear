@@ -5,7 +5,7 @@ const mnemonic = getMnemonic();
 //Singleton every, always returns the same promise
 const promise = RavencoinWallet.createInstance({
   mnemonic,
-  network: "rvn-test",
+  network: "rvn",
 });
 
 export async function getWallet() {

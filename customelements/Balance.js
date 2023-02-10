@@ -13,6 +13,7 @@ class Balance extends HTMLElement {
       this.update();
     };
     document.body.addEventListener("transaction-cleared", up);
+    document.title = getTokenName();
     this.update();
   }
   async update() {
