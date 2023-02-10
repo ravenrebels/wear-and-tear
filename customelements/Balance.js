@@ -22,14 +22,14 @@ class Balance extends HTMLElement {
 
     const asset = assets.find((asset) => asset.assetName === getTokenName());
     const amount = asset ? asset.balance / 1e8 : 0;
-
+    const imageURL = await getImageURL();
     const template = ` 
                 <article>
                     <img 
                         alt="" 
                         id="logo" 
                         loading="lazy"
-                        src="${getImageURL()}"/> 
+                        src="${imageURL}"/> 
                      <h2 id="title">${getTokenName()}</h2>
                     <h1 class="box" id="balance__asset">
                     ${amount} 
@@ -46,9 +46,18 @@ class Balance extends HTMLElement {
   }
 }
 
-function getImageURL() {
+async function getImageURL() {
+  //mainnet and testnet images need different "thumbnail" services
+  const urls = {
+    rvn: "https://rvn-explorer-mainnet.ting.finance/thumbnail?",
+    "rvn-test": "https://testnet.ting.finance/thumbnail?",
+  };
+  const wallet = await getWallet();
+  const network = wallet.network;
+  const baseURL = urls[network];
+
   const assetName = getTokenName();
-  const baseURL = "https://testnet.ting.finance/thumbnail?";
+
   const params = new URLSearchParams();
   params.set("assetName", assetName);
   return baseURL + params.toString();
