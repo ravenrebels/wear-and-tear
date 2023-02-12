@@ -13,7 +13,7 @@ Bob attends a conference and he wants to be able to send LEMONADE tokens to peop
 Bob hosts this wallet on is site www.bob.com/wallet?asset=LEMONADE.
 
 Here comes the happy flow: 
-* Bob wants to send a LEMONADE token to Alice who has never heard about Ravencoin before.
+* Bob wants to send a LEMONADE token to Alice, Alice has never heard about Ravencoin before.
 * Bob shows Alice a QR code with the link to his web wallet.
 * Alice opens the link on your smartphone.
 * Alice shows her receive QR code for Bob.
