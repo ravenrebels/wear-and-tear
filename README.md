@@ -19,7 +19,7 @@ Here comes the happy flow:
 * Alice shows her receive QR code for Bob.
 * Bob transfers a LEMONADE token to Alice and a small amount of RVN so Alice can transfer her token later.
 * DONE
-* Alice can now sit down, have a cup of coffee, install a real any Ravencoin wallet on her smartphone and transfer the LEMONADE token to her self.
+* Alice can now sit down, have a cup of coffee, install a real Ravencoin wallet on her smartphone and transfer the LEMONADE token to her self.
 At the end of this story, Alice is no longer holding any tokens in the hot wear-and-tear wallet, her tokens are safe in her real wallet.
 
 
