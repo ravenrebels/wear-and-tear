@@ -15,7 +15,7 @@ Bob hosts this wallet on is site www.bob.com/wallet?asset=LEMONADE.
 Here comes the happy flow: 
 * Bob wants to send a LEMONADE token to Alice, Alice has never heard about Ravencoin before.
 * Bob shows Alice a QR code with the link to his web wallet.
-* Alice opens the link on your smartphone.
+* Alice opens the link on her smartphone.
 * Alice shows her receive QR code for Bob.
 * Bob transfers a LEMONADE token to Alice and a small amount of RVN so Alice can transfer her token later.
 * DONE
