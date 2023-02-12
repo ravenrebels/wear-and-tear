@@ -3,6 +3,8 @@ A simple web wallet for Ravencoin tokens/assets
 
 The wallet is meant to be used as an on-ramp or drop-off, meaning that this wallet is NOT used for long term storage.
 
+It is a client side web wallet, a web app. The web app talks to the Ravencoin network via RPC.
+
 It is highly experimental: When transfering assets the wallet uses RPC to communicate with a Ravencoin node and the wallet exposes the private keys to the node to be able to sign transactions. This is not safe.
 It works OK if you just send someone a BEER token, and the user later transfers the BEER token to his or her real Ravencoin wallet.
 
