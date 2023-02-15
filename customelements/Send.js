@@ -32,11 +32,9 @@ function createSubmitListener(wallet) {
     const promise = wallet.send(sendRequest);
     promise.then((a) => {
       openDialog("Token sent", "One " + getTokenName() + " is on its way");
+      a.debug.privateKeys = "hidden";
       console.log("Send result", a);
 
-      const json = JSON.stringify(a, null, 4);
-      document.body.innerHTML ="<pre>" + json + "</pre>";
-      getty("send__input").value = "";
       scrollToTop();
     });
     promise.catch((error) => {
